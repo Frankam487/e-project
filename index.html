@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Services</title>
     <style>
-        /* Mise en page principale */
+       
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #121212;
@@ -75,7 +75,7 @@
             margin-bottom: 30px;
         }
 
-        /* Style du bouton pour voir l'image */
+        
         .show-image-button {
             padding: 12px 20px;
             background-color: #ff6347;
@@ -91,7 +91,6 @@
             background-color: #ff4500;
         }
 
-        /* Conteneur de l'image (initialement caché et caché en bas de la carte) */
         .image-container {
             display: none;
             position: absolute;
@@ -122,7 +121,7 @@
             transform: scale(1);
         }
 
-        /* Responsivité pour les petits écrans */
+        
         @media (max-width: 768px) {
             .card {
                 width: 100%;
@@ -141,7 +140,7 @@
     <h1>Mes Services</h1>
 
     <div class="container">
-        <!-- Première carte -->
+        
         <div class="card">
             <div class="card-header">Service 1</div>
             <div class="card-subheader">Sous-titre du service 1</div>
@@ -152,7 +151,6 @@
             </div>
         </div>
 
-        <!-- Deuxième carte -->
         <div class="card">
             <div class="card-header">Service 2</div>
             <div class="card-subheader">Sous-titre du service 2</div>
@@ -163,7 +161,7 @@
             </div>
         </div>
 
-        <!-- Troisième carte -->
+        
         <div class="card">
             <div class="card-header">Service 3</div>
             <div class="card-subheader">Sous-titre du service 3</div>
@@ -176,9 +174,9 @@
     </div>
 
     <script>
-        // Fonction pour afficher/cacher l'image avec animation de glissement
+        
         function toggleImage(imageId) {
-            // Masque toutes les autres images
+           
             const allImages = document.querySelectorAll('.image-container');
             allImages.forEach(image => {
                 if (image.id !== imageId) {
@@ -189,11 +187,10 @@
             const imageContainer = document.getElementById(imageId);
             const image = imageContainer.querySelector('img');
 
-            // Si l'image est cachée, on l'affiche avec l'animation de glissement
+            
             if (!imageContainer.classList.contains('show')) {
                 imageContainer.classList.add('show');
             } else {
-                // Si l'image est déjà affichée, on la cache avec un retour
                 imageContainer.classList.remove('show');
             }
         }
@@ -201,4 +198,283 @@
 
 </body>
 
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services de Coiffure pour Femmes</title>
+    <style>
+        /* Styles globaux */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+           
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            
+        }
+
+        h1 {
+            color: #ff69b4;
+            text-align: center;
+            font-size: 2.8rem;
+            margin-top: 30px;
+            font-family: 'Cursive';
+            margin-bottom: 50px;
+        }
+
+        /* Conteneur principal */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        /* Styles des cartes */
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #ff69b4;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .card-button {
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .card-button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        /* Animation d'apparition des images */
+        .image-container {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .image-container.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .image-container img {
+            width: 80%;
+            height: auto;
+            border-radius: 15px;
+            object-fit: cover;
+            transform: scale(1.2);
+            transition: transform 0.5s ease;
+        }
+
+        .image-container img.show {
+            transform: scale(1);
+        }
+
+        /* Responsivité */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Nos Services de Coiffure</h1>
+
+    <div class="container">
+        <!-- Carte 1 -->
+        <div class="card">
+            <div class="image-container" id="image1">
+                <img src="./images/WhatsApp Image 2024-12-12 at 15.04.53_9f08b1fc.jpg" alt="Coiffure 1">
+            </div>
+            <img src="./images/WhatsApp Image 2024-12-08 at 18.15.09_6fe159fb.jpg" alt="Coiffure 1" class="card-img">
+            <div class="card-content">
+                <div class="card-title">Coiffure Élégante</div>
+                <div class="card-description">Des coiffures raffinées pour toutes occasions. Laissez-vous séduire par notre expertise.</div>
+                <button class="card-button" onclick="toggleImage('image1')">Voir l'image</button>
+            </div>
+        </div>
+
+        <!-- Carte 2 -->
+        <div class="card">
+            <div class="image-container" id="image2">
+                <img src="https://via.placeholder.com/400x400/ff69b4/ffffff?text=Coiffure+2" alt="Coiffure 2">
+            </div>
+            <img src="https://via.placeholder.com/400x300/ff69b4/ffffff?text=Coiffure+2" alt="Coiffure 2" class="card-img">
+            <div class="card-content">
+                <div class="card-title">Coiffure Moderne</div>
+                <div class="card-description">Une coupe moderne et dynamique qui met en valeur votre personnalité unique.</div>
+                <button class="card-button" onclick="toggleImage('image2')">Voir l'image</button>
+            </div>
+        </div>
+
+        <!-- Carte 3 -->
+        <div class="card">
+            <div class="image-container" id="image3">
+                <img src="./images/WhatsApp Image 2024-12-08 at 18.15.09_72c43091.jpg" alt="Coiffure 3">
+            </div>
+            <img src="./images/WhatsApp Image 2024-12-12 at 15.04.53_9f08b1fc.jpg" alt="Coiffure 3" class="card-img">
+            <div class="card-content">
+                <div class="card-title">Coiffure Chic</div>
+                <div class="card-description">Sophistication et raffinement à travers des coupes élégantes et intemporelles.</div>
+                <button class="card-button" onclick="toggleImage('image3')">Voir l'image</button>
+            </div>
+        </div>
+
+        <!-- Carte 4 -->
+        <div class="card">
+            <div class="image-container" id="image4">
+                <img src="https://via.placeholder.com/400x400/ff69b4/ffffff?text=Coiffure+4" alt="Coiffure 4">
+            </div>
+            <img src="./images/WhatsApp Image 2024-12-08 at 18.15.09_6fe159fb.jpg" alt="Coiffure 4" class="card-img">
+            <div class="card-content">
+                <div class="card-title">Coiffure Naturelle</div>
+                <div class="card-description">Des coiffures naturelles, sublimes et adaptées à votre texture de cheveux.</div>
+                <button class="card-button" onclick="toggleImage('image4')">Voir l'image</button>
+            </div>
+        </div>
+
+        <!-- Carte 5 -->
+        <div class="card">
+            <div class="image-container" id="image5">
+                <img src="./images/WhatsApp Image 2024-12-08 at 18.15.09_72c43091.jpg" alt="Coiffure 5">
+            </div>
+            <img src="./images/WhatsApp Image 2024-12-12 at 15.04.53_9f08b1fc.jpg" alt="Coiffure 5" class="card-img">
+            <div class="card-content">
+                <div class="card-title">Coiffure De Soirée</div>
+                <div class="card-description">Offrez-vous une coiffure éclatante pour vos événements spéciaux.</div>
+                <button class="card-button" onclick="toggleImage('image5')">Voir l'image</button>
+            </div>
+        </div>
+
+        <!-- Carte 6 -->
+        <div class="card">
+            <div class="image-container" id="image6">
+                <img src="https://via.placeholder.com/400x400/ff69b4/ffffff?text=Coiffure+6" alt="Coiffure 6">
+            </div>
+            <img src="https://via.placeholder.com/400x300/ff69b4/ffffff?text=Coiffure+6" alt="Coiffure 6" class="card-img">
+            <div class="card-content">
+                <div class="card-title">Coiffure Tendance</div>
+                <div class="card-description">Les dernières tendances coiffures à ne pas manquer pour un look moderne.</div>
+                <button class="card-button" onclick="toggleImage('image6')">Voir l'image</button>
+            </div>
+        </div>
+
+        <!-- Carte 7 -->
+        <div class="card">
+            <div class="image-container" id="image7">
+                <img src="https://via.placeholder.com/400x400/ff69b4/ffffff?text=Coiffure+7" alt="Coiffure 7">
+            </div>
+            <img src="https://via.placeholder.com/400x300/ff69b4/ffffff?text=Coiffure+7" alt="Coiffure 7" class="card-img">
+            <div class="card-content">
+                <div class="card-title">Coiffure Bohème</div>
+                <div class="card-description">Un style boho chic pour un look décontracté mais élégant.</div>
+                <button class="card-button" onclick="toggleImage('image7')">Voir l'image</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleImage(imageId) {
+            const imageContainer = document.getElementById(imageId);
+            if (imageContainer.classList.contains('show')) {
+                imageContainer.classList.remove('show');
+            } else {
+                const allImages = document.querySelectorAll('.image-container');
+                allImages.forEach(image => {
+                    image.classList.remove('show');
+                });
+                imageContainer.classList.add('show');
+            }
+        }
+    </script>
+
+</body>
+
 </html>
+
