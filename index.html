@@ -459,6 +459,137 @@
 
     </div>
 
+    <!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <!-- Section 1: Informations de contact -->
+        <div class="footer-section">
+            <h4>Contactez-nous</h4>
+            <p>Email : contact@coiffure.com</p>
+            <p>Téléphone : +33 1 23 45 67 89</p>
+            <p>Adresse : 123 Rue de la Coiffure, Paris</p>
+        </div>
+
+        <!-- Section 2: Liens utiles -->
+        <div class="footer-section">
+            <h4>Liens utiles</h4>
+            <ul>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Nos services</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 3: Réseaux sociaux -->
+        <div class="footer-section">
+            <h4>Suivez-nous</h4>
+            <div class="social-icons">
+                <a href="#" target="_blank" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook" />
+                </a>
+                <a href="#" target="_blank" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" />
+                </a>
+                <a href="#" target="_blank" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Twitter_Logo_2012.svg/1200px-Twitter_Logo_2012.svg.png" alt="Twitter" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Coiffure Élégante | Tous droits réservés.</p>
+    </div>
+</footer>
+
+<style>
+    /* Styles du Footer */
+    footer {
+        background-color: #ff69b4;
+        color: #fff;
+        padding: 50px 0;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-section h4 {
+        font-size: 1.4rem;
+        color: #fff;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .footer-section p,
+    .footer-section ul {
+        font-size: 1rem;
+        color: #fff;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: #ff1493;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icon img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s;
+    }
+
+    .social-icon:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Style du bas du footer */
+    .footer-bottom {
+        margin-top: 30px;
+        font-size: 0.9rem;
+        color: #fff;
+    }
+
+    .footer-bottom p {
+        margin: 0;
+    }
+
+    /* Responsivité */
+    @media (max-width: 768px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
     <script>
         function toggleImage(imageId) {
             const imageContainer = document.getElementById(imageId);
