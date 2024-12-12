@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Services</title>
     <style>
+        /* Mise en page principale */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #121212;
@@ -22,8 +23,8 @@
         h1 {
             font-size: 2.5em;
             margin-bottom: 40px;
-            color: #fff;
             text-align: center;
+            color: #fff;
         }
 
         .container {
@@ -74,6 +75,7 @@
             margin-bottom: 30px;
         }
 
+        /* Style du bouton pour voir l'image */
         .show-image-button {
             padding: 12px 20px;
             background-color: #ff6347;
@@ -89,17 +91,17 @@
             background-color: #ff4500;
         }
 
+        /* Conteneur de l'image (initialement caché et caché en bas de la carte) */
         .image-container {
             display: none;
             position: absolute;
-            bottom: 0;
+            bottom: -100%;
             left: 0;
             right: 0;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.75);
             opacity: 0;
-            transform: translateY(100%);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: all 0.5s ease;
         }
 
         .image-container img {
@@ -111,18 +113,19 @@
         }
 
         .image-container.show {
+            display: block;
+            bottom: 0;
             opacity: 1;
-            transform: translateY(0);
         }
 
         .image-container img.show {
             transform: scale(1);
         }
 
-        /* Responsivité */
+        /* Responsivité pour les petits écrans */
         @media (max-width: 768px) {
             .card {
-                width: 90%;
+                width: 100%;
                 margin: 15px 0;
             }
 
@@ -138,39 +141,42 @@
     <h1>Mes Services</h1>
 
     <div class="container">
+        <!-- Première carte -->
         <div class="card">
             <div class="card-header">Service 1</div>
             <div class="card-subheader">Sous-titre du service 1</div>
             <div class="card-description">Un service unique et innovant qui répond à vos besoins avec précision.</div>
             <button class="show-image-button" onclick="toggleImage('image1')">Voir l'image</button>
             <div id="image1" class="image-container">
-                <img src="https://via.placeholder.com/280x200" alt="Image Service 1">
+                <img src="./images/WhatsApp Image 2024-12-12 at 08.58.59_e20b6afd.jpg" alt="Image Service 1">
             </div>
         </div>
 
+        <!-- Deuxième carte -->
         <div class="card">
             <div class="card-header">Service 2</div>
             <div class="card-subheader">Sous-titre du service 2</div>
             <div class="card-description">Ce service transforme votre expérience avec des résultats à couper le souffle.</div>
             <button class="show-image-button" onclick="toggleImage('image2')">Voir l'image</button>
             <div id="image2" class="image-container">
-                <img src="https://via.placeholder.com/280x200" alt="Image Service 2">
+                <img src="./images/WhatsApp Image 2024-12-08 at 18.15.09_72c43091.jpg" alt="Image Service 2">
             </div>
         </div>
 
+        <!-- Troisième carte -->
         <div class="card">
             <div class="card-header">Service 3</div>
             <div class="card-subheader">Sous-titre du service 3</div>
             <div class="card-description">Un service haut de gamme qui garantit une satisfaction totale à chaque étape.</div>
             <button class="show-image-button" onclick="toggleImage('image3')">Voir l'image</button>
             <div id="image3" class="image-container">
-                <img src="https://via.placeholder.com/280x200" alt="Image Service 3">
+                <img src="./images/WhatsApp Image 2024-12-08 at 18.15.09_6fe159fb.jpg" alt="Image Service 3">
             </div>
         </div>
     </div>
 
     <script>
-        // Fonction pour afficher/cacher l'image lorsque le bouton est cliqué
+        // Fonction pour afficher/cacher l'image avec animation de glissement
         function toggleImage(imageId) {
             // Masque toutes les autres images
             const allImages = document.querySelectorAll('.image-container');
@@ -182,12 +188,12 @@
 
             const imageContainer = document.getElementById(imageId);
             const image = imageContainer.querySelector('img');
-            
-            // Si l'image est cachée, on l'affiche avec une animation
+
+            // Si l'image est cachée, on l'affiche avec l'animation de glissement
             if (!imageContainer.classList.contains('show')) {
                 imageContainer.classList.add('show');
             } else {
-                // Si l'image est déjà affichée, on la cache
+                // Si l'image est déjà affichée, on la cache avec un retour
                 imageContainer.classList.remove('show');
             }
         }
