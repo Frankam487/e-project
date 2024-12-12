@@ -8,81 +8,122 @@
     <style>
         /* Style général */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ccc;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 50px;
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .card {
-            background-color: white;
-            width: 250px;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #2b2b2b;
+            width: 280px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 350px;
         }
 
         .card:hover {
-            transform: scale(1.05);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .card-header {
-            font-size: 1.5em;
-            color: #333;
-            font-weight: bold;
+            font-size: 1.6em;
+            color: #fff;
+            font-weight: 600;
+            margin-top: 20px;
         }
 
         .card-subheader {
-            font-size: 1.2em;
-            color: #777;
-            margin: 10px 0;
+            font-size: 1.1em;
+            color: #aaa;
+            margin-top: 10px;
+            margin-bottom: 15px;
         }
 
         .card-description {
             font-size: 1em;
-            color: #555;
-            margin-bottom: 20px;
+            color: #ddd;
+            padding: 0 15px;
+            margin-bottom: 30px;
         }
 
         .show-image-button {
-            padding: 10px 20px;
-            background-color: #007bff;
+            padding: 12px 20px;
+            background-color: #ff6347;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
+            font-size: 1.1em;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .show-image-button:hover {
-            background-color: #0056b3;
+            background-color: #ff4500;
         }
 
         .image-container {
             display: none;
-            margin-top: 15px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        img {
-            max-width: 100%;
+        .image-container img {
+            width: 100%;
             height: auto;
-            border-radius: 8px;
+            object-fit: cover;
+            transform: scale(1.2);
+            transition: transform 0.5s ease;
+        }
+
+        .image-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .image-container img.show {
+            transform: scale(1);
         }
 
         /* Responsivité */
         @media (max-width: 768px) {
             .card {
                 width: 100%;
-                margin: 10px 0;
+                margin: 15px 0;
             }
         }
     </style>
@@ -90,34 +131,36 @@
 
 <body>
 
+    <h1>Mes Services</h1>
+
     <div class="container">
         <div class="card">
             <div class="card-header">Service 1</div>
             <div class="card-subheader">Sous-titre du service 1</div>
-            <div class="card-description">Description détaillée du service 1. Cela montre comment le service fonctionne et ce qu'il offre.</div>
+            <div class="card-description">Un service unique et innovant qui répond à vos besoins avec précision.</div>
             <button class="show-image-button" onclick="toggleImage('image1')">Voir l'image</button>
             <div id="image1" class="image-container">
-                <img src="https://via.placeholder.com/300x200" alt="Image Service 1">
+                <img src="https://via.placeholder.com/280x200" alt="Image Service 1">
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">Service 2</div>
             <div class="card-subheader">Sous-titre du service 2</div>
-            <div class="card-description">Description détaillée du service 2. Cela montre comment le service fonctionne et ce qu'il offre.</div>
+            <div class="card-description">Ce service transforme votre expérience avec des résultats à couper le souffle.</div>
             <button class="show-image-button" onclick="toggleImage('image2')">Voir l'image</button>
             <div id="image2" class="image-container">
-                <img src="https://via.placeholder.com/300x200" alt="Image Service 2">
+                <img src="https://via.placeholder.com/280x200" alt="Image Service 2">
             </div>
         </div>
 
         <div class="card">
             <div class="card-header">Service 3</div>
             <div class="card-subheader">Sous-titre du service 3</div>
-            <div class="card-description">Description détaillée du service 3. Cela montre comment le service fonctionne et ce qu'il offre.</div>
+            <div class="card-description">Un service haut de gamme qui garantit une satisfaction totale à chaque étape.</div>
             <button class="show-image-button" onclick="toggleImage('image3')">Voir l'image</button>
             <div id="image3" class="image-container">
-                <img src="https://via.placeholder.com/300x200" alt="Image Service 3">
+                <img src="https://via.placeholder.com/280x200" alt="Image Service 3">
             </div>
         </div>
     </div>
@@ -125,11 +168,23 @@
     <script>
         // Fonction pour afficher/cacher l'image lorsque le bouton est cliqué
         function toggleImage(imageId) {
+            // Masque toutes les autres images
+            const allImages = document.querySelectorAll('.image-container');
+            allImages.forEach(image => {
+                if (image.id !== imageId) {
+                    image.classList.remove('show');
+                }
+            });
+
             const imageContainer = document.getElementById(imageId);
-            if (imageContainer.style.display === "none" || imageContainer.style.display === "") {
-                imageContainer.style.display = "block";
+            const image = imageContainer.querySelector('img');
+            
+            // Si l'image est cachée, on l'affiche avec une animation
+            if (!imageContainer.classList.contains('show')) {
+                imageContainer.classList.add('show');
             } else {
-                imageContainer.style.display = "none";
+                // Si l'image est déjà affichée, on la cache
+                imageContainer.classList.remove('show');
             }
         }
     </script>
