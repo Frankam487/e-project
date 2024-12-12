@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Services</title>
+    <style>
+        /* Style général */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            width: 250px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-header {
+            font-size: 1.5em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .card-subheader {
+            font-size: 1.2em;
+            color: #777;
+            margin: 10px 0;
+        }
+
+        .card-description {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .show-image-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .show-image-button:hover {
+            background-color: #0056b3;
+        }
+
+        .image-container {
+            display: none;
+            margin-top: 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Responsivité */
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Service 1</div>
+            <div class="card-subheader">Sous-titre du service 1</div>
+            <div class="card-description">Description détaillée du service 1. Cela montre comment le service fonctionne et ce qu'il offre.</div>
+            <button class="show-image-button" onclick="toggleImage('image1')">Voir l'image</button>
+            <div id="image1" class="image-container">
+                <img src="https://via.placeholder.com/300x200" alt="Image Service 1">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Service 2</div>
+            <div class="card-subheader">Sous-titre du service 2</div>
+            <div class="card-description">Description détaillée du service 2. Cela montre comment le service fonctionne et ce qu'il offre.</div>
+            <button class="show-image-button" onclick="toggleImage('image2')">Voir l'image</button>
+            <div id="image2" class="image-container">
+                <img src="https://via.placeholder.com/300x200" alt="Image Service 2">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Service 3</div>
+            <div class="card-subheader">Sous-titre du service 3</div>
+            <div class="card-description">Description détaillée du service 3. Cela montre comment le service fonctionne et ce qu'il offre.</div>
+            <button class="show-image-button" onclick="toggleImage('image3')">Voir l'image</button>
+            <div id="image3" class="image-container">
+                <img src="https://via.placeholder.com/300x200" alt="Image Service 3">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour afficher/cacher l'image lorsque le bouton est cliqué
+        function toggleImage(imageId) {
+            const imageContainer = document.getElementById(imageId);
+            if (imageContainer.style.display === "none" || imageContainer.style.display === "") {
+                imageContainer.style.display = "block";
+            } else {
+                imageContainer.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
