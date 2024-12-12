@@ -408,7 +408,7 @@
         <!-- Carte 4 -->
         <div class="card">
             <div class="image-container" id="image4">
-                <img src="https://via.placeholder.com/400x400/ff69b4/ffffff?text=Coiffure+4" alt="Coiffure 4">
+                <img src="./images/1.jpg" alt="Coiffure 4">
             </div>
             <img src="./images/WhatsApp Image 2024-12-08 at 18.15.09_6fe159fb.jpg" alt="Coiffure 4" class="card-img">
             <div class="card-content">
@@ -447,9 +447,9 @@
         <!-- Carte 7 -->
         <div class="card">
             <div class="image-container" id="image7">
-                <img src="https://via.placeholder.com/400x400/ff69b4/ffffff?text=Coiffure+7" alt="Coiffure 7">
+                <img src="./images/2.jpg" alt="Coiffure 7">
             </div>
-            <img src="https://via.placeholder.com/400x300/ff69b4/ffffff?text=Coiffure+7" alt="Coiffure 7" class="card-img">
+            <img src="./images/2.jpg" alt="Coiffure 7" class="card-img">
             <div class="card-content">
                 <div class="card-title">Coiffure Bohème</div>
                 <div class="card-description">Un style boho chic pour un look décontracté mais élégant.</div>
@@ -512,6 +512,7 @@
         padding: 50px 0;
         font-family: 'Arial', sans-serif;
         text-align: center;
+        width: 100%;
     }
 
     .footer-container {
@@ -590,20 +591,7 @@
 </style>
 
 
-    <script>
-        function toggleImage(imageId) {
-            const imageContainer = document.getElementById(imageId);
-            if (imageContainer.classList.contains('show')) {
-                imageContainer.classList.remove('show');
-            } else {
-                const allImages = document.querySelectorAll('.image-container');
-                allImages.forEach(image => {
-                    image.classList.remove('show');
-                });
-                imageContainer.classList.add('show');
-            }
-        }
-    </script>
+    <script src="./app.js"></script>
 
 </body>
 
