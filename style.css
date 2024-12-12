@@ -1,0 +1,19 @@
+
+
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .social-icon i {
+        font-size: 30px;
+        color: #fff;
+        transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-icon:hover i {
+        transform: scale(1.1);
+        color: #ff1493;
+    }
